@@ -1,1 +1,0 @@
-/usr/bin/clang++-12     CMakeFiles/tm_joint_velocity.dir/tm_joint_velocity_test.cpp.o  -o tm_joint_velocity  -lPocoFoundation -lPocoNet 
