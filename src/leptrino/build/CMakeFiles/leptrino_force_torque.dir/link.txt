@@ -1,1 +1,0 @@
-/usr/bin/clang++-12     CMakeFiles/leptrino_force_torque.dir/src/leptrino_force_torque.cpp.o CMakeFiles/leptrino_force_torque.dir/src/rs_comm.cpp.o  -o leptrino_force_torque  -lPocoFoundation -lPocoNet 

@@ -1,5 +1,0 @@
-/home/harumo/program/cpp/tut_massage/src/leptrino/build/CMakeFiles/rebuild_cache.dir
-/home/harumo/program/cpp/tut_massage/src/leptrino/build/CMakeFiles/edit_cache.dir
-/home/harumo/program/cpp/tut_massage/src/leptrino/build/CMakeFiles/leptrino_test_client2.dir
-/home/harumo/program/cpp/tut_massage/src/leptrino/build/CMakeFiles/leptrino_test_client.dir
-/home/harumo/program/cpp/tut_massage/src/leptrino/build/CMakeFiles/leptrino_force_torque.dir
