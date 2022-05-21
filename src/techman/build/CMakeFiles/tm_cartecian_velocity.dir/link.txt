@@ -1,0 +1,1 @@
+/usr/bin/clang++-12     CMakeFiles/tm_cartecian_velocity.dir/tm_cartecian_velocity_test.cpp.o  -o tm_cartecian_velocity  -lPocoFoundation -lPocoNet 

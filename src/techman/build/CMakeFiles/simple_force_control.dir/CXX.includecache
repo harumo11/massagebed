@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/harumo/program/cpp/tut_massage/src/techman/simple_force_control.cpp
+Poco/Net/SocketAddress.h
+-
+Poco/Net/SocketStream.h
+-
+Poco/Net/StreamSocket.h
+-
+Poco/StreamCopier.h
+-
+Poco/String.h
+-
+Poco/StringTokenizer.h
+-
+chrono
+-
+iostream
+-
+sstream
+-
+thread
+-
+tuple
+-
+

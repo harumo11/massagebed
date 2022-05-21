@@ -1,0 +1,1 @@
+/usr/bin/clang++-12     CMakeFiles/simple_force_control.dir/simple_force_control.cpp.o  -o simple_force_control  -lPocoFoundation -lPocoNet 
