@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/harumo/program/cpp/tut_massage/src/leptrino/src/tcp_client.cpp
+Poco/Net/SocketAddress.h
+-
+Poco/Net/SocketStream.h
+-
+Poco/Net/StreamSocket.h
+-
+Poco/StreamCopier.h
+-
+chrono
+-
+iostream
+-
+thread
+-
+

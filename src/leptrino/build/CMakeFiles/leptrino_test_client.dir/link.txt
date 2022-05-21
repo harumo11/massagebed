@@ -1,0 +1,1 @@
+/usr/bin/clang++-12     CMakeFiles/leptrino_test_client.dir/src/tcp_client.cpp.o  -o leptrino_test_client  -lPocoFoundation -lPocoNet 
