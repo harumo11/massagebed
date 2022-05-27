@@ -19,7 +19,7 @@ public:
     std::optional<std::vector<double>> split_message(const std::string message);
     std::vector<double> remove_bias(const std::vector<double> sensor_data,
         const std::vector<double> biases);
-    void try_close();
+    void try_disconnect();
     std::vector<double> reveive_data();
     std::vector<double> measure_bias();
     std::vector<double> biases = { 0, 0, 0, 0, 0, 0 };
@@ -51,6 +51,7 @@ void leptrino::try_connect(const std::string ipaddress, const unsigned int port)
         } catch (Poco::Exception& exc) {
             std::cout << "[Warn] " << exc.displayText() << std::endl;
             std::this_thread::sleep_for(std::chrono::seconds(1));
+            continue;
         }
         std::cout << "[Info] "
                   << "The connection to leptrino is established successfully." << std::endl;
@@ -123,7 +124,7 @@ std::vector<double> leptrino::remove_bias(const std::vector<double> sensor_data,
  *
  * @return If the connection close successfully, return True.
  */
-void leptrino::try_close()
+void leptrino::try_disconnect()
 {
     this->socket_to_leptrino.shutdown();
     this->socket_to_leptrino.close();
