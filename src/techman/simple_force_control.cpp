@@ -6,7 +6,6 @@
 #include <Poco/StringTokenizer.h>
 #include <chrono>
 #include <cmath>
-#include <iomanip>
 #include <iostream>
 #include <sstream>
 #include <thread>
@@ -162,20 +161,9 @@ int main(int argc, char* argv[])
         std::cout << "[read] "
                   << "[ " << i << " ] " << force_torque_vec.at(0) << "\t" << force_torque_vec.at(1) << "\t" << force_torque_vec.at(2) << std::endl;
         if (std::abs(force_torque_vec.at(0)) > 3) {
-            std::stringstream velocity_command;
-            velocity_command << "SetContinueVLine(" << std::fixed << std::setprecision(3) << 0.1 * std::sin(i) << ",0,0,0,0,0)";
-            std::string cartecian_velocity_command = create_command(velocity_command.str());
-            robot_socket.sendBytes(cartecian_velocity_command.c_str(), cartecian_velocity_command.length());
         }
         std::cout << "------------------------" << std::endl;
     }
-
-    std::string stop_cartecian_vel_mode = create_command("StopContinueVmode()");
-    robot_socket.sendBytes(stop_cartecian_vel_mode.c_str(), stop_cartecian_vel_mode.length());
-    char read_buff[256];
-    robot_msgs_size = robot_socket.receiveBytes(read_buff, sizeof(read_buff));
-    read_buff[robot_msgs_size] = '\0';
-    std::cout << "[Read] " << read_buff << std::endl;
 
     return 0;
 }
