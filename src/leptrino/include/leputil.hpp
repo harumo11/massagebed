@@ -20,7 +20,7 @@ public:
     std::vector<double> remove_bias(const std::vector<double> sensor_data,
         const std::vector<double> biases);
     void try_disconnect();
-    std::vector<double> reveive_data();
+    std::vector<double> receive_data();
     std::vector<double> measure_bias();
     std::vector<double> biases = { 0, 0, 0, 0, 0, 0 };
     double mean(const std::vector<double>& sensor_data);
@@ -137,7 +137,7 @@ void leptrino::try_disconnect()
  *
  * @return The force and toruqe sensor data. You should use this values to your calculations.
  */
-std::vector<double> leptrino::reveive_data()
+std::vector<double> leptrino::receive_data()
 {
     char message[4096];
     int received_size = this->socket_to_leptrino.receiveBytes(message, sizeof(message));
