@@ -11,10 +11,17 @@
 
 std::vector<double> split_message(const std::string message)
 {
+    const std::string header = "DATA";
+    std::cout << "[Info] "
+              << "recieved massage : " << message << std::endl;
     // find DATA: and remove from msgs
-    std::string msg_header_removed = message.substr(message.find_first_of(":") + 1);
+    std::string msg_header_removed = message.substr(message.find_first_of(header) + header.size());
+    std::cout << "[Info] "
+              << "removed header massage : " << msg_header_removed << std::endl;
     // find : and remove from msgs
     std::string msg_footer_removed = msg_header_removed.erase(msg_header_removed.find_first_of(":"));
+    std::cout << "[Info] "
+              << "removed footer massage : " << msg_footer_removed << std::endl;
     // sepalete msgs with ,
     Poco::StringTokenizer tokernizer(msg_footer_removed, ",");
     std::vector<double> force_torque_data;
