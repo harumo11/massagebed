@@ -18,6 +18,7 @@ class techman {
 
 public:
     techman();
+    ~techman();
     int checksum(const std::string message, const bool verbose = false);
     std::string create_command(const std::string script, const bool verbose = false);
     void try_connect(const std::string ipaddress = "192.168.10.2", const unsigned int port = 5890);
@@ -32,6 +33,21 @@ public:
 
 techman::techman()
 {
+    this->try_connect();
+}
+
+techman::~techman()
+{
+    if (this->current_mode == "cart") {
+        std::string stop_mode_command = this->create_command("StopContinueVLine()");
+        int send_script_size = this->send_script(stop_mode_command);
+        std::cout << "[Debug] send script size : " << send_script_size << std::endl;
+
+    } else {
+        std::string stop_mode_command = this->create_command("StopContinueVJog()");
+        int send_script_size = this->send_script(stop_mode_command);
+        std::cout << "[Debug] send script size : " << send_script_size << std::endl;
+    }
 }
 
 void techman::try_connect(const std::string ipaddress, const unsigned int port)
@@ -137,24 +153,24 @@ bool techman::set_motion_mode(const std::string mode)
     this->current_mode = mode;
 
     if (mode == "joint") {
-        std::string stop_mode_command = this->create_command("StopContinueVLine()");
-        int send_script_size = this->send_script(stop_mode_command);
-        std::cout << "[Debug] send script size : " << send_script_size << std::endl;
+        //std::string stop_mode_command = this->create_command("StopContinueVLine()");
+        //int send_script_size = this->send_script(stop_mode_command);
+        //std::cout << "[Debug] send script size : " << send_script_size << std::endl;
 
         std::string joint_mode_command = this->create_command("ContinueVJog()");
-        send_script_size = this->send_script(joint_mode_command);
+        int send_script_size = this->send_script(joint_mode_command);
         std::cout << "[Debug] send script size : " << send_script_size << std::endl;
 
         std::string received_script = this->recv_script();
         std::cout << "[Debug] received script : " << received_script << std::endl;
         return true;
     } else { // mode == "cart"
-        std::string stop_mode_command = this->create_command("StopContinueVJog()");
-        int send_script_size = this->send_script(stop_mode_command);
-        std::cout << "[Debug] send script size : " << send_script_size << std::endl;
+        //std::string stop_mode_command = this->create_command("StopContinueVJog()");
+        //int send_script_size = this->send_script(stop_mode_command);
+        //std::cout << "[Debug] send script size : " << send_script_size << std::endl;
 
         std::string cart_mode_command = this->create_command("ContinueVLine(1000, 1000)");
-        send_script_size = this->send_script(cart_mode_command);
+        int send_script_size = this->send_script(cart_mode_command);
         std::cout << "[Debug] send script size : " << send_script_size << std::endl;
 
         const std::string received_script = this->recv_script();
