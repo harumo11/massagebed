@@ -1,2 +1,7 @@
 site_name: Massage System Manual
 theme: readthedocs
+
+markdown_extensions:
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
