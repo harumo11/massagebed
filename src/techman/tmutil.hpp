@@ -48,6 +48,8 @@ techman::~techman()
         int send_script_size = this->send_script(stop_mode_command);
         std::cout << "[Debug] send script size : " << send_script_size << std::endl;
     }
+
+    this->try_disconnect();
 }
 
 void techman::try_connect(const std::string ipaddress, const unsigned int port)
