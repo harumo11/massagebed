@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/harumo/program/cpp/massagebed/src/techman/tm_cartecian_velocity_test.cpp
+chrono
+-
+cmath
+-
+iomanip
+-
+iostream
+-
+memory
+-
+sstream
+-
+thread
+-
+Poco/Net/SocketStream.h
+-
+Poco/Net/StreamSocket.h
+-
+

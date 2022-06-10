@@ -99,26 +99,34 @@ int main(void)
     received_data[byte] = '\0';
     std::cout << "[Receive] " << received_data << std::endl;
 
+    //std::cout << "send ptp command" << std::endl;
+    //std::stringstream ptp_command;
+    //ptp_command << R"(Move_PTP("JPP",0,0,90,0,90,0,35,200,0,false)" << std::endl;
+    //socket.sendBytes(ptp_command.str().c_str(), ptp_command.str().length());
+    //std::cout << "finish ptp command" << std::endl;
+    //std::exit(0);
+
     //send command which rotate frange joint with 1deg/s
     double numrator = 90;
     auto start_time_point1 = std::chrono::high_resolution_clock::now();
-    int sleep_time = 50;
+    int sleep_time = 10;
     bool is_display = true;
     for (double i = 0; i < 2 * M_PI; i += 2 * M_PI * 0.01) {
         std::stringstream velocity_command;
         velocity_command << "SetContinueVJog(0,0,0,0,0," << std::fixed << std::setprecision(3) << -0.5 * numrator * std::sin(i) << ")";
         std::string joint_velocity_command = create_command(velocity_command.str());
         socket.sendBytes(joint_velocity_command.c_str(), joint_velocity_command.length());
-        char read_buff[256];
+
+        //char read_buff[256];
         //socket.receiveBytes(read_buff, sizeof(read_buff));
         //read_buff[byte] = '\0';
-        //if (is_display)
-        //{
-        //       std::cout << "[Forward] " << i << std::endl;
-        //       std::system("cls");
-        //       std::cout << "[Send] " << joint_velocity_command << std::endl;
-        //       std::cout << "[Read] " << read_buff << std::endl;
+        //if (is_display) {
+        //    std::cout << "[Forward] " << i << std::endl;
+        //    std::system("cls");
+        //    std::cout << "[Send] " << joint_velocity_command << std::endl;
+        //    std::cout << "[Read] " << read_buff << std::endl;
         //}
+
         std::this_thread::sleep_for(std::chrono::milliseconds(sleep_time));
     }
     auto end_time_point1 = std::chrono::high_resolution_clock::now();
